@@ -1,0 +1,232 @@
+/* ==========================================================================
+   COMPONENTS — header, botones, footer
+   ========================================================================== */
+
+/* ---- Botones: planos, sin relleno decorativo, sin sombra ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 0.9rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--c-ink);
+  color: var(--c-bg);
+  border-color: var(--c-ink);
+}
+
+.btn-primary:hover {
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-line-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--c-ink);
+}
+
+.btn-arrow {
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ---- Header ---- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--c-gray);
+  font-weight: 400;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--c-ink-soft);
+  transition: color var(--dur-fast) var(--ease);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--c-ink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.nav-lang {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--c-gray);
+  letter-spacing: 0.04em;
+}
+
+.nav-lang button[aria-current='true'] {
+  color: var(--c-ink);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+  padding: var(--sp-1);
+}
+
+.nav-toggle span {
+  height: 1px;
+  width: 100%;
+  background: var(--c-ink);
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  background: var(--c-invert-bg);
+  color: var(--c-invert-gray);
+  border-top: 1px solid var(--c-line);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr 1fr;
+  gap: var(--sp-5);
+  padding-block: var(--sp-7) var(--sp-6);
+  border-bottom: 1px solid var(--c-invert-line);
+}
+
+.footer-brand .logo {
+  color: var(--c-invert-ink);
+}
+
+.footer-brand .logo span {
+  color: var(--c-invert-gray);
+}
+
+.footer-tagline {
+  margin-top: var(--sp-3);
+  max-width: 30ch;
+  font-size: 0.9375rem;
+  color: var(--c-invert-gray);
+}
+
+.footer-col h4 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-invert-gray);
+  margin-bottom: var(--sp-3);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.footer-col a,
+.footer-col address {
+  font-size: 0.9375rem;
+  font-style: normal;
+  color: #d4d4d4;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.footer-col a:hover {
+  color: var(--c-invert-ink);
+}
+
+.footer-compliance {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding-block: var(--sp-5);
+  border-bottom: 1px solid var(--c-invert-line);
+}
+
+.compliance-badge {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--c-invert-line);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--c-invert-gray);
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-block: var(--sp-4);
+  font-size: 0.8125rem;
+  color: #737373;
+}
+
+.footer-legal {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.footer-legal a:hover {
+  color: var(--c-invert-ink);
+}

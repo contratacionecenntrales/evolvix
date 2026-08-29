@@ -1,0 +1,45 @@
+/* ==========================================================================
+   TOKENS — sistema de diseño Evolvix Global
+   Fondo blanco absoluto, negro profundo, grises sutiles, líneas de 1px.
+   Cero sombras, cero degradados, cero radios decorativos.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --c-bg: #ffffff;
+  --c-ink: #0a0a0a;
+  --c-ink-soft: #404040;
+  --c-gray: #737373;
+  --c-gray-light: #a3a3a3;
+  --c-line: #e5e5e5;
+  --c-line-strong: #d4d4d4;
+  --c-invert-bg: #0a0a0a;
+  --c-invert-ink: #ffffff;
+  --c-invert-gray: #a3a3a3;
+  --c-invert-line: #262626;
+
+  /* Tipografía */
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif;
+
+  /* Espaciado — escala 8pt */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 4rem;
+  --sp-7: 6rem;
+  --sp-8: 8rem;
+  --sp-9: 12rem;
+
+  /* Layout */
+  --container-max: 1440px;
+  --container-pad: clamp(1.25rem, 4vw, 4rem);
+  --header-h: 76px;
+
+  /* Movimiento — mínimo, funcional, no decorativo */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+}

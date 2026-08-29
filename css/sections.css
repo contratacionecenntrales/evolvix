@@ -1,0 +1,288 @@
+/* ==========================================================================
+   SECTIONS — hero, ecosistema, presencia global, contacto
+   ========================================================================== */
+
+section {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: var(--sp-6) var(--sp-5);
+  gap: var(--sp-4);
+}
+
+.section-head h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+/* ---- Hero ---- */
+
+.hero {
+  padding-top: calc(var(--header-h) + var(--sp-8));
+  padding-bottom: var(--sp-8);
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--sp-4);
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 6.4vw, 6rem);
+  max-width: 18ch;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--c-gray-light);
+}
+
+.hero-sub {
+  display: grid;
+  grid-template-columns: minmax(0, 620px) auto;
+  gap: var(--sp-6);
+  align-items: end;
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  color: var(--c-gray);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c-line);
+  margin-top: var(--sp-7);
+}
+
+.hero-stat {
+  padding: var(--sp-4) var(--sp-4) 0;
+  border-left: 1px solid var(--c-line);
+}
+
+.hero-stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.hero-stat .num {
+  display: block;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat .label {
+  display: block;
+  margin-top: var(--sp-1);
+  font-size: 0.8125rem;
+  color: var(--c-gray);
+}
+
+/* ---- Ecosistema: grid de líneas finas ---- */
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--c-line);
+  border-left: 1px solid var(--c-line);
+}
+
+.division {
+  border-right: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+  padding: var(--sp-5) var(--sp-4);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.division:hover {
+  background: #fafafa;
+}
+
+.division-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.division-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--c-ink);
+}
+
+.division h3 {
+  font-size: 1.25rem;
+  margin-top: var(--sp-4);
+}
+
+.division p {
+  margin-top: var(--sp-2);
+  font-size: 0.9375rem;
+  color: var(--c-gray);
+  max-width: 34ch;
+  flex-grow: 1;
+}
+
+.division-link {
+  margin-top: var(--sp-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.division-link svg {
+  transition: transform var(--dur-fast) var(--ease);
+  width: 14px;
+  height: 14px;
+}
+
+.division:hover .division-link svg {
+  transform: translateX(3px);
+}
+
+/* ---- Presencia global / métricas ---- */
+
+.global {
+  background: var(--c-invert-bg);
+  color: var(--c-invert-ink);
+  border-bottom: none;
+}
+
+.global .eyebrow {
+  color: var(--c-invert-gray);
+}
+
+.global .eyebrow::before {
+  background: var(--c-invert-ink);
+}
+
+.global .section-head h2 {
+  color: var(--c-invert-ink);
+}
+
+.global-desc {
+  max-width: 52ch;
+  color: var(--c-invert-gray);
+  font-size: 1rem;
+  padding-bottom: var(--sp-6);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c-invert-line);
+}
+
+.metric {
+  padding: var(--sp-6) var(--sp-4) var(--sp-7);
+  border-left: 1px solid var(--c-invert-line);
+}
+
+.metric:first-child {
+  border-left: none;
+}
+
+.metric .num {
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.metric .label {
+  display: block;
+  margin-top: var(--sp-2);
+  font-size: 0.875rem;
+  color: var(--c-invert-gray);
+  max-width: 22ch;
+}
+
+.nodes-list {
+  border-top: 1px solid var(--c-invert-line);
+  padding-block: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.nodes-list span {
+  font-size: 0.8125rem;
+  color: var(--c-invert-gray);
+  letter-spacing: 0.02em;
+}
+
+.nodes-list strong {
+  color: var(--c-invert-ink);
+  font-weight: 500;
+}
+
+/* ---- Contacto / CTA final ---- */
+
+.cta {
+  padding-block: var(--sp-8);
+}
+
+.cta-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  max-width: 20ch;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.cta-contact-list {
+  display: flex;
+  gap: var(--sp-6);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--c-line);
+}
+
+.cta-contact-list div h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-gray);
+  margin-bottom: var(--sp-1);
+  font-weight: 500;
+}
+
+.cta-contact-list div a,
+.cta-contact-list div p {
+  font-size: 1rem;
+  color: var(--c-ink);
+}
