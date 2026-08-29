@@ -37,8 +37,11 @@ ServerSignature Off
   # No filtra la URL completa de origen al navegar a otros sitios
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-  # Desactiva APIs del navegador que este sitio no usa
-  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  # Desactiva APIs del navegador que este sitio no usa. "payment" se deja
+  # disponible para el propio origen y para el widget de reservas de
+  # GoHighLevel (software.metatok.ai), que lo solicita vía allow="payment"
+  # en su <iframe> por si el calendario llega a gestionar cobros.
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(self \"https://software.metatok.ai\"), usb=(), interest-cohort=()"
 
   # Fuerza HTTPS en visitas futuras durante 1 año.
   # Una vez confirmado que TODOS los subdominios usan HTTPS, se puede
