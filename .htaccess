@@ -67,9 +67,15 @@ Options -Indexes -MultiViews +FollowSymLinks
 </IfModule>
 
 # Bloquea archivos de configuración, copias de seguridad y de control de versiones
-<FilesMatch "(^\.|\.(env|log|md|sh|bak|sql|zip|gz|tar|conf|ini|yml|yaml)$)">
+<FilesMatch "(^\.|\.(env|log|md|sh|bak|sql|zip|gz|tar|conf|ini|yml|yaml|py)$)">
   Require all denied
 </FilesMatch>
+
+# Bloquea la carpeta de plantillas de generación multi-idioma (no se sube al
+# hosting, ver DEPLOY.md; esta regla es solo por si se subiera por error)
+<IfModule mod_rewrite.c>
+  RewriteRule ^i18n-src/ - [F,L]
+</IfModule>
 
 # ---- Métodos HTTP permitidos ----
 <LimitExcept GET POST HEAD>

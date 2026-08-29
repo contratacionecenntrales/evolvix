@@ -83,14 +83,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--c-line);
-  border-left: 1px solid var(--c-line);
+  border-inline-start: 1px solid var(--c-line);
   margin-block: var(--sp-5);
   max-width: 72ch;
 }
 
 .compliance-item {
   padding: var(--sp-4);
-  border-right: 1px solid var(--c-line);
+  border-inline-end: 1px solid var(--c-line);
   border-bottom: 1px solid var(--c-line);
 }
 

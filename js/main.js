@@ -34,4 +34,13 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  var langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.addEventListener('change', function () {
+      if (langSelect.value) {
+        window.location.href = langSelect.value;
+      }
+    });
+  }
 })();

@@ -21,7 +21,7 @@
   }
 
   .metric:nth-child(3) {
-    border-left: none;
+    border-inline-start: none;
   }
 
   .metric:nth-child(3),
@@ -34,7 +34,7 @@
   }
 
   .hero-stat:nth-child(3) {
-    border-left: none;
+    border-inline-start: none;
   }
 
   .hero-stat:nth-child(3),
@@ -116,9 +116,9 @@
 
   .hero-stat,
   .metric {
-    border-left: none !important;
+    border-inline-start: none !important;
     border-top: 1px solid var(--c-line);
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .metric {
@@ -132,7 +132,7 @@
   }
 
   .division {
-    border-right: none;
+    border-inline-end: none;
     min-height: 0;
   }
 

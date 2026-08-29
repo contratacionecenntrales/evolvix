@@ -12,18 +12,39 @@ raíz de tu hosting:
 .htaccess          ← IMPORTANTE: es un archivo oculto, actívalo en tu cliente FTP
 404.html
 DEPLOY.md           (no hace falta subirlo, es solo para referencia)
-index.html
+index.html          (español — idioma por defecto)
 legal.html
 robots.txt
 sitemap.xml
 assets/
 css/
 js/
+en/                  (inglés)
+  ├─ index.html
+  └─ legal.html
+pt/                  (portugués)
+  ├─ index.html
+  └─ legal.html
+fr/                  (francés)
+  ├─ index.html
+  └─ legal.html
+de/                  (alemán)
+  ├─ index.html
+  └─ legal.html
+ar/                  (árabe — RTL)
+  ├─ index.html
+  └─ legal.html
 .well-known/
   └─ security.txt
 ```
 
-No subas `.git/` ni `DEPLOY.md` — no son necesarios en el servidor.
+No subas `.git/`, `DEPLOY.md` ni `i18n-src/` — no son necesarios en el
+servidor. La carpeta `i18n-src/` contiene solo las plantillas y el script
+Python usados para **generar** las 6 versiones de idioma; no es parte del
+sitio publicado (y el `.htaccess` la bloquea igualmente por si se sube por
+error). Si en el futuro hay que cambiar un texto, edítalo en
+`i18n-src/build.py` y vuelve a ejecutar `python3 i18n-src/build.py` desde la
+raíz del proyecto para regenerar todas las páginas.
 
 ## 2. Dónde subirlo (directorio raíz según tu panel)
 
@@ -81,6 +102,12 @@ error 500:
 - [ ] `https://evolvixglobal.es` (sin www) redirige a `https://www...`
 - [ ] El menú móvil, los anclajes del menú y los enlaces del footer funcionan
 - [ ] `https://www.evolvixglobal.es/legal.html` carga correctamente
+- [ ] `https://www.evolvixglobal.es/en/`, `/pt/`, `/fr/`, `/de/` y `/ar/`
+      cargan cada uno en su idioma
+- [ ] `https://www.evolvixglobal.es/ar/` se muestra correctamente de derecha
+      a izquierda (RTL)
+- [ ] El desplegable de idioma del footer cambia de idioma manteniendo la
+      misma página (home ↔ home, legal ↔ legal)
 - [ ] Una URL inventada (ej. `/no-existe`) muestra la página 404 personalizada
 - [ ] Comprobar cabeceras de seguridad en
       [securityheaders.com](https://securityheaders.com) → debería dar nota A/A+
