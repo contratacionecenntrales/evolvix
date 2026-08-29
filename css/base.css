@@ -75,6 +75,12 @@ h4 {
   padding-inline: var(--container-pad);
 }
 
+section[id],
+.division[id],
+[id='contacto'] {
+  scroll-margin-top: calc(var(--header-h) + var(--sp-2));
+}
+
 .eyebrow {
   display: flex;
   align-items: center;

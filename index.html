@@ -9,7 +9,7 @@
     content="Evolvix Global es un holding que integra inteligencia artificial, comercio internacional, inteligencia de negocio, ciberseguridad e infraestructura digital bajo una misma matriz operativa."
   />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="data:," />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,10 @@
 
   <header class="site-header">
     <div class="container">
-      <a href="#top" class="logo">EVOLVIX<span>·GLOBAL</span></a>
+      <a href="#top" class="logo">
+        <img src="assets/logo-icon.png" class="logo-icon" alt="" width="168" height="247" />
+        EVOLVIX<span>·GLOBAL</span>
+      </a>
 
       <nav class="main-nav" data-open="false" id="main-nav">
         <ul class="nav-links">
@@ -124,7 +127,7 @@
 
       <div class="container" style="padding-inline: var(--container-pad)">
         <div class="ecosystem-grid">
-          <article class="division">
+          <article class="division" id="ia">
             <div class="division-top">
               <span class="section-index">01</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -149,7 +152,7 @@
             </a>
           </article>
 
-          <article class="division">
+          <article class="division" id="comercio-internacional">
             <div class="division-top">
               <span class="section-index">02</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -174,7 +177,7 @@
             </a>
           </article>
 
-          <article class="division">
+          <article class="division" id="inteligencia-negocio">
             <div class="division-top">
               <span class="section-index">03</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -199,7 +202,7 @@
             </a>
           </article>
 
-          <article class="division">
+          <article class="division" id="ciberseguridad">
             <div class="division-top">
               <span class="section-index">04</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -224,7 +227,7 @@
             </a>
           </article>
 
-          <article class="division">
+          <article class="division" id="infraestructura-cloud">
             <div class="division-top">
               <span class="section-index">05</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -246,7 +249,7 @@
             </a>
           </article>
 
-          <article class="division">
+          <article class="division" id="legal-compliance">
             <div class="division-top">
               <span class="section-index">06</span>
               <svg class="division-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -358,7 +361,10 @@
   <footer class="site-footer">
     <div class="container footer-top">
       <div class="footer-brand">
-        <a href="#top" class="logo">EVOLVIX<span>·GLOBAL</span></a>
+        <a href="#top" class="logo">
+        <img src="assets/logo-icon.png" class="logo-icon" alt="" width="168" height="247" />
+        EVOLVIX<span>·GLOBAL</span>
+      </a>
         <p class="footer-tagline">
           Ecosistema de activos tecnológicos y estratégicos operando bajo una
           misma matriz corporativa.
@@ -368,10 +374,10 @@
       <div class="footer-col">
         <h4>Ecosistema</h4>
         <ul>
-          <li><a href="#ecosistema">Inteligencia Artificial</a></li>
-          <li><a href="#ecosistema">Comercio Internacional</a></li>
-          <li><a href="#ecosistema">Inteligencia de Negocio</a></li>
-          <li><a href="#ecosistema">Ciberseguridad</a></li>
+          <li><a href="#ia">Inteligencia Artificial</a></li>
+          <li><a href="#comercio-internacional">Comercio Internacional</a></li>
+          <li><a href="#inteligencia-negocio">Inteligencia de Negocio</a></li>
+          <li><a href="#ciberseguridad">Ciberseguridad</a></li>
         </ul>
       </div>
 
@@ -381,17 +387,17 @@
           <li><a href="#compania">Sobre Evolvix</a></li>
           <li><a href="#global">Presencia global</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#">Carreras</a></li>
+          <li><a href="mailto:contacto@evolvixglobal.es?subject=Carreras%20en%20Evolvix%20Global">Carreras</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Aviso legal</a></li>
-          <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Cookies</a></li>
-          <li><a href="#">Compliance</a></li>
+          <li><a href="legal.html#aviso-legal">Aviso legal</a></li>
+          <li><a href="legal.html#privacidad">Privacidad</a></li>
+          <li><a href="legal.html#cookies">Cookies</a></li>
+          <li><a href="legal.html#compliance">Compliance</a></li>
         </ul>
       </div>
 
@@ -415,9 +421,9 @@
     <div class="container footer-bottom">
       <p>© <span id="year">2026</span> Evolvix Global Holding, S.L. Todos los derechos reservados.</p>
       <div class="footer-legal">
-        <a href="#">Aviso legal</a>
-        <a href="#">Privacidad</a>
-        <a href="#">Cookies</a>
+        <a href="legal.html#aviso-legal">Aviso legal</a>
+        <a href="legal.html#privacidad">Privacidad</a>
+        <a href="legal.html#cookies">Cookies</a>
       </div>
     </div>
   </footer>
