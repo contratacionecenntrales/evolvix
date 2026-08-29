@@ -46,6 +46,7 @@
           <li><a href="#ecosistema">Ökosystem</a></li>
           <li><a href="#global">Globale Präsenz</a></li>
           <li><a href="#compania">Unternehmen</a></li>
+          <li><a href="talento.html">Karriere</a></li>
           <li><a href="#contacto">Kontakt</a></li>
         </ul>
       </nav>
@@ -323,18 +324,72 @@
           </div>
         </div>
 
-        <div class="cta-contact-list" id="contacto">
-          <div>
-            <h4>Direkter Kontakt</h4>
-            <a href="mailto:contacto@evolvixglobal.es">contacto@evolvixglobal.es</a>
+        <div class="contact-block" id="contacto">
+          <div class="cta-contact-list">
+            <div>
+              <h4>Direkter Kontakt</h4>
+              <a href="mailto:contacto@evolvixglobal.es">contacto@evolvixglobal.es</a>
+            </div>
+            <div>
+              <h4>Hauptsitz</h4>
+              <p>Madrid, Spanien</p>
+            </div>
+            <div>
+              <h4>Geschäftszeiten</h4>
+              <p>Montag bis Freitag, 09:00–19:00 Uhr MEZ</p>
+            </div>
           </div>
-          <div>
-            <h4>Hauptsitz</h4>
-            <p>Madrid, Spanien</p>
+
+          <div class="contact-form-block">
+            <h3>Senden Sie uns eine Nachricht</h3>
+            <p>Beschreiben Sie kurz Ihr Anliegen — wir antworten von info@evolvixglobal.es.</p>
+            <form class="form" data-mailto-to="info@evolvixglobal.es" data-mailto-subject="Kontaktformular — Evolvix Global">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="contact-name">Name</label>
+                  <input type="text" id="contact-name" name="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">E-Mail</label>
+                  <input type="email" id="contact-email" name="email" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="contact-reason">Anliegen</label>
+                <select id="contact-reason" name="reason" data-subject-field>
+                  <option>Allgemeine Anfrage</option>
+                  <option>Geschäftsvorschlag</option>
+                  <option>Partnerschaft</option>
+                  <option>Sonstiges</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="contact-message">Nachricht</label>
+                <textarea id="contact-message" name="message" required></textarea>
+              </div>
+              <p class="form-note">Beim Absenden öffnet sich Ihr E-Mail-Programm mit diesen Angaben, adressiert an info@evolvixglobal.es.</p>
+              <button type="submit" class="btn btn-primary">
+                Nachricht senden
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+              </button>
+            </form>
           </div>
-          <div>
-            <h4>Geschäftszeiten</h4>
-            <p>Montag bis Freitag, 09:00–19:00 Uhr MEZ</p>
+
+          <div class="booking-widget">
+            <h3>Termin vereinbaren</h3>
+            <p>Wählen Sie den für Sie passenden Zeitpunkt und sprechen Sie direkt mit unserem Team.</p>
+            <div class="booking-widget-frame">
+              <iframe
+                src="https://software.metatok.ai/widget/booking/pEtnymND4cFCyKNKpyKE"
+                scrolling="no"
+                id="pEtnymND4cFCyKNKpyKE_1"
+                title="Termin vereinbaren"
+                allow="payment"
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -367,7 +422,7 @@
           <li><a href="#compania">Über Evolvix</a></li>
           <li><a href="#global">Globale Präsenz</a></li>
           <li><a href="#contacto">Kontakt</a></li>
-          <li><a href="mailto:contacto@evolvixglobal.es?subject=Karriere%20bei%20Evolvix%20Global">Karriere</a></li>
+          <li><a href="talento.html">Karriere</a></li>
         </ul>
       </div>
 
@@ -422,5 +477,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script src="https://software.metatok.ai/js/form_embed.js"></script>
 </body>
 </html>

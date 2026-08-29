@@ -276,3 +276,58 @@
   color: var(--c-ink);
   background: var(--c-bg);
 }
+
+/* ---- Formularios (contacto, candidaturas) ---- */
+
+.form {
+  max-width: 640px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: var(--sp-3);
+}
+
+.form-field label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--c-ink-soft);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--c-ink);
+  background: var(--c-bg);
+  border: 1px solid var(--c-line-strong);
+  padding: 0.7rem 0.85rem;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  border-color: var(--c-ink);
+  outline: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-size: 0.8125rem;
+  color: var(--c-gray);
+  margin-bottom: var(--sp-3);
+}

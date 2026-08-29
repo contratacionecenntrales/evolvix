@@ -49,10 +49,13 @@ ServerSignature Off
   Header always set Cross-Origin-Opener-Policy "same-origin"
   Header always set Cross-Origin-Resource-Policy "same-origin"
 
-  # Política de contenido: solo recursos propios + tipografía de Google Fonts.
-  # No hay scripts ni estilos inline en el sitio, por lo que no se necesita
-  # 'unsafe-inline' en ninguna directiva.
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  # Política de contenido: recursos propios + tipografía de Google Fonts +
+  # widget de reservas de GoHighLevel (software.metatok.ai), la única
+  # excepción de terceros del sitio. No hay scripts ni estilos inline, por
+  # lo que no se necesita 'unsafe-inline' en ninguna directiva.
+  # form-action incluye mailto: porque los formularios de contacto y
+  # candidaturas usan un enlace mailto como envío (sin backend propio).
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://software.metatok.ai; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://software.metatok.ai; frame-src https://software.metatok.ai; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; upgrade-insecure-requests"
 </IfModule>
 
 # ---- Directorios y archivos ----

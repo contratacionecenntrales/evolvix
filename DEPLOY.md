@@ -14,6 +14,7 @@ raíz de tu hosting:
 DEPLOY.md           (no hace falta subirlo, es solo para referencia)
 index.html          (español — idioma por defecto)
 legal.html
+talento.html
 robots.txt
 sitemap.xml
 assets/
@@ -21,19 +22,24 @@ css/
 js/
 en/                  (inglés)
   ├─ index.html
-  └─ legal.html
+  ├─ legal.html
+  └─ talento.html
 pt/                  (portugués)
   ├─ index.html
-  └─ legal.html
+  ├─ legal.html
+  └─ talento.html
 fr/                  (francés)
   ├─ index.html
-  └─ legal.html
+  ├─ legal.html
+  └─ talento.html
 de/                  (alemán)
   ├─ index.html
-  └─ legal.html
+  ├─ legal.html
+  └─ talento.html
 ar/                  (árabe — RTL)
   ├─ index.html
-  └─ legal.html
+  ├─ legal.html
+  └─ talento.html
 .well-known/
   └─ security.txt
 ```
@@ -95,19 +101,62 @@ error 500:
    y prueba de nuevo, o contacta con soporte de Hostalia para que
    confirmen qué módulos tienes activos.
 
-## 6. Checklist tras publicar
+## 6. Formularios, reservas y candidaturas (sin backend)
+
+El sitio no tiene servidor propio, así que los tres puntos de contacto se
+resuelven así:
+
+- **Formulario de contacto** (home, sección Contacto) y **formulario de
+  candidaturas** (`talento.html`): no envían los datos a ningún servidor.
+  Al pulsar "Enviar", JavaScript (`js/main.js`) construye un enlace
+  `mailto:info@evolvixglobal.es` con el asunto y el cuerpo ya rellenados
+  a partir de los campos del formulario, y abre el cliente de correo del
+  visitante. El correo tiene que salir realmente desde ese cliente — no
+  hay envío automático en segundo plano.
+  - El campo `Motivo` / `Área de interés` se añade al asunto del correo
+    para poder filtrar de un vistazo.
+  - **Los archivos adjuntos (el CV) no se pueden añadir por `mailto:`**:
+    el propio formulario se lo indica al usuario ("adjunta tu CV en PDF
+    antes de enviarlo"). Si prefieres una subida de CV real sin que el
+    usuario tenga que adjuntarlo a mano, hace falta un servicio de
+    formularios con backend (Formspree, Web3Forms, un formulario nativo
+    de GoHighLevel, etc.) — dímelo y lo conecto.
+  - Revisa que `info@evolvixglobal.es` sea una bandeja real y monitorizada
+    antes de publicar; ahí llegan tanto las consultas comerciales como las
+    candidaturas.
+- **Reserva de llamada** (home, sección Contacto): es el widget de
+  calendario de GoHighLevel (`software.metatok.ai`), incrustado como
+  `<iframe>`. La gestión de disponibilidad, notificaciones y
+  confirmaciones la controla directamente el panel de GoHighLevel — no
+  hay nada que mantener aquí aparte del propio embed.
+- **CSP**: el `.htaccess` autoriza explícitamente `software.metatok.ai`
+  en `script-src`, `frame-src` y `connect-src` (es la única excepción de
+  terceros del sitio), y `form-action` incluye `mailto:` para que el envío
+  nativo del formulario funcione incluso si JavaScript fallara. Si en el
+  futuro cambias de proveedor de calendario o formularios, hay que
+  actualizar esa cabecera con el nuevo dominio.
+
+## 7. Checklist tras publicar
 
 - [ ] `https://www.evolvixglobal.es` carga con el candado verde (SSL activo)
 - [ ] `http://www.evolvixglobal.es` redirige automáticamente a `https://`
 - [ ] `https://evolvixglobal.es` (sin www) redirige a `https://www...`
 - [ ] El menú móvil, los anclajes del menú y los enlaces del footer funcionan
 - [ ] `https://www.evolvixglobal.es/legal.html` carga correctamente
+- [ ] `https://www.evolvixglobal.es/talento.html` carga correctamente y el
+      enlace "Talento" del menú funciona en todas las páginas
+- [ ] El formulario de contacto y el de candidaturas abren el cliente de
+      correo con el asunto y los datos ya rellenados, dirigidos a
+      `info@evolvixglobal.es`
+- [ ] El widget "Reserva una llamada" carga el calendario de GoHighLevel
+      (revisa la consola del navegador por si el dominio cambia y hay que
+      actualizar el CSP)
 - [ ] `https://www.evolvixglobal.es/en/`, `/pt/`, `/fr/`, `/de/` y `/ar/`
       cargan cada uno en su idioma
 - [ ] `https://www.evolvixglobal.es/ar/` se muestra correctamente de derecha
       a izquierda (RTL)
 - [ ] El desplegable de idioma del footer cambia de idioma manteniendo la
-      misma página (home ↔ home, legal ↔ legal)
+      misma página (home ↔ home, legal ↔ legal, talento ↔ talento)
 - [ ] Una URL inventada (ej. `/no-existe`) muestra la página 404 personalizada
 - [ ] Comprobar cabeceras de seguridad en
       [securityheaders.com](https://securityheaders.com) → debería dar nota A/A+
@@ -116,7 +165,7 @@ error 500:
 - [ ] Dar de alta `sitemap.xml` en
       [Google Search Console](https://search.google.com/search-console)
 
-## 7. Seguridad — buenas prácticas continuas
+## 8. Seguridad — buenas prácticas continuas
 
 El `.htaccess` ya deja el sitio protegido a nivel de cabeceras HTTP
 (HSTS, CSP, X-Frame-Options, X-Content-Type-Options, etc.), pero conviene

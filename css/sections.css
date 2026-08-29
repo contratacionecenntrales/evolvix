@@ -264,12 +264,16 @@ section {
   gap: var(--sp-2);
 }
 
-.cta-contact-list {
-  display: flex;
-  gap: var(--sp-6);
+.contact-block {
   margin-top: var(--sp-6);
   padding-top: var(--sp-4);
   border-top: 1px solid var(--c-line);
+}
+
+.cta-contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
 }
 
 .cta-contact-list div h4 {
@@ -285,4 +289,40 @@ section {
 .cta-contact-list div p {
   font-size: 1rem;
   color: var(--c-ink);
+}
+
+/* ---- Formulario de contacto / widget de reservas (GoHighLevel) ---- */
+
+.contact-form-block,
+.booking-widget {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.contact-form-block h3,
+.booking-widget h3 {
+  font-size: 1.25rem;
+}
+
+.contact-form-block > p,
+.booking-widget > p {
+  margin-top: var(--sp-1);
+  margin-bottom: var(--sp-4);
+  max-width: 60ch;
+  color: var(--c-gray);
+  font-size: 0.9375rem;
+}
+
+.booking-widget-frame {
+  border: 1px solid var(--c-line);
+  max-width: 640px;
+}
+
+.booking-widget-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  border: none;
+  overflow: hidden;
 }

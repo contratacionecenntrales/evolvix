@@ -98,6 +98,12 @@
   }
 }
 
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --header-h: 64px;
