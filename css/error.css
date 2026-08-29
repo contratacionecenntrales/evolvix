@@ -1,0 +1,37 @@
+/* ==========================================================================
+   ERROR — página 404
+   ========================================================================== */
+
+.error-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--header-h);
+}
+
+.error-code {
+  font-size: clamp(4rem, 14vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--c-line-strong);
+}
+
+.error-hero h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-top: var(--sp-2);
+  max-width: 22ch;
+}
+
+.error-hero p {
+  margin-top: var(--sp-3);
+  color: var(--c-gray);
+  max-width: 48ch;
+  font-size: 1.0625rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}

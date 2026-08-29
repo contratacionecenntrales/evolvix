@@ -1,0 +1,98 @@
+# ==========================================================================
+# Evolvix Global — configuración Apache para hosting Hostalia
+# Sitio estático (HTML/CSS/JS). Sin backend, sin base de datos.
+# ==========================================================================
+
+# ---- Charset por defecto ----
+AddDefaultCharset UTF-8
+
+# ---- Ocultar información del servidor ----
+ServerSignature Off
+<IfModule mod_headers.c>
+  Header unset X-Powered-By
+  Header always unset Server
+</IfModule>
+
+# ---- Forzar HTTPS y dominio canónico (www.evolvixglobal.es) ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http -> https
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # evolvixglobal.es -> www.evolvixglobal.es
+  RewriteCond %{HTTP_HOST} ^evolvixglobal\.es$ [NC]
+  RewriteRule ^(.*)$ https://www.evolvixglobal.es/$1 [L,R=301]
+</IfModule>
+
+# ---- Cabeceras de seguridad ----
+<IfModule mod_headers.c>
+  # Evita que el navegador "adivine" el tipo de contenido (mitiga XSS por MIME sniffing)
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Prohíbe que el sitio se cargue dentro de un <iframe> ajeno (clickjacking)
+  Header always set X-Frame-Options "DENY"
+
+  # No filtra la URL completa de origen al navegar a otros sitios
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Desactiva APIs del navegador que este sitio no usa
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+
+  # Fuerza HTTPS en visitas futuras durante 1 año.
+  # Una vez confirmado que TODOS los subdominios usan HTTPS, se puede
+  # ampliar a: "max-age=63072000; includeSubDomains; preload"
+  Header always set Strict-Transport-Security "max-age=31536000"
+
+  # Aísla el contexto de navegación de otros orígenes
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+
+  # Política de contenido: solo recursos propios + tipografía de Google Fonts.
+  # No hay scripts ni estilos inline en el sitio, por lo que no se necesita
+  # 'unsafe-inline' en ninguna directiva.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+</IfModule>
+
+# ---- Directorios y archivos ----
+Options -Indexes -MultiViews +FollowSymLinks
+
+# Bloquea el acceso web a cualquier archivo/carpeta oculto (.git, .htaccess, .env...)
+# excepto .well-known, necesario para /.well-known/security.txt
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} "!^/\.well-known/"
+  RewriteCond %{REQUEST_URI} "/\."
+  RewriteRule ^ - [F]
+</IfModule>
+
+# Bloquea archivos de configuración, copias de seguridad y de control de versiones
+<FilesMatch "(^\.|\.(env|log|md|sh|bak|sql|zip|gz|tar|conf|ini|yml|yaml)$)">
+  Require all denied
+</FilesMatch>
+
+# ---- Métodos HTTP permitidos ----
+<LimitExcept GET POST HEAD>
+  Require all denied
+</LimitExcept>
+
+# ---- Página de error personalizada ----
+ErrorDocument 404 /404.html
+
+# ---- Compresión de texto ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---- Caché de navegador para estáticos ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
