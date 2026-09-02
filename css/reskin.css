@@ -1,0 +1,117 @@
+/* ==========================================================================
+   RESKIN — lenguaje visual de la plantilla Lumora aplicado a Evolvix Global:
+   botones tipo píldora, tarjetas oscuras redondeadas para el ecosistema,
+   paneles redondeados para las cifras y el contacto, esquinas redondeadas
+   en loader/footer. Capa que se carga al final para prevalecer sobre
+   sections.css/components.css sin tener que reescribirlos.
+   ========================================================================== */
+
+:root {
+  --radius-pill: 9999px;
+  --radius-card: 1.5rem;
+  --c-surface: #f6f6f4;
+}
+
+/* ---- Botones tipo píldora ---- */
+
+.btn,
+.menu-open-btn {
+  border-radius: var(--radius-pill);
+}
+
+/* ---- Loader: esquina inferior redondeada, a juego con el footer ---- */
+
+#loader {
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+}
+
+/* ---- Ecosistema: tarjetas oscuras redondeadas ---- */
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  border: none;
+}
+
+.division {
+  border: none;
+  border-radius: var(--radius-card);
+  background: var(--c-ink);
+  padding: var(--sp-5) var(--sp-4);
+  transition: transform var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+}
+
+.division:hover {
+  background: #171717;
+  transform: translateY(-4px);
+}
+
+.division-icon {
+  color: var(--c-accent);
+}
+
+.division .section-index {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.division h3 {
+  color: var(--c-invert-ink);
+}
+
+.division p {
+  color: var(--c-invert-gray);
+}
+
+.division-link {
+  color: var(--c-invert-ink);
+}
+
+@media (max-width: 1080px) {
+  .ecosystem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+  .division {
+    min-height: 0;
+  }
+}
+
+/* ---- Presencia global: panel redondeado sobre el fondo oscuro ---- */
+
+.metrics-grid {
+  border: none;
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.04);
+  padding: var(--sp-5) var(--sp-4) var(--sp-6);
+}
+
+.metric {
+  border-inline-start-color: var(--c-invert-line);
+}
+
+/* ---- Contacto: panel redondeado ---- */
+
+.contact-block {
+  border: none;
+  border-radius: var(--radius-card);
+  background: var(--c-surface);
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.booking-widget-frame {
+  border-radius: 0.875rem;
+  overflow: hidden;
+}
+
+/* ---- Footer: esquinas superiores redondeadas ---- */
+
+.site-footer {
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
