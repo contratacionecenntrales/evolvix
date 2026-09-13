@@ -1,0 +1,417 @@
+/* ==========================================================================
+   SECTIONS — hero, ecosistema, presencia global, contacto
+   ========================================================================== */
+
+section {
+  border-bottom: 1px solid var(--c-line);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: var(--sp-6) var(--sp-5);
+  gap: var(--sp-4);
+}
+
+.section-head h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+/* ---- Hero ----
+   Fondo oscuro premium con una red de nodos animada dibujada en
+   <canvas class="hero-network">. Reutiliza los tokens --c-invert-* del
+   resto del sitio (mismos que usa la sección .global) para el texto,
+   y añade --c-hero-bg/--c-neon solo para el fondo y los CTA de esta
+   sección. */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(var(--header-h) + var(--sp-8));
+  padding-bottom: var(--sp-8);
+  background: var(--c-hero-bg);
+  color: var(--c-invert-ink);
+  border-bottom-color: var(--c-hero-line);
+}
+
+.hero-network {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 32%,
+    rgba(5, 11, 13, 0) 0%,
+    rgba(5, 11, 13, 0.55) 68%,
+    rgba(5, 11, 13, 0.88) 100%
+  );
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--sp-4);
+  color: var(--c-invert-gray);
+}
+
+.hero-eyebrow::before {
+  background: var(--c-invert-ink);
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 6.4vw, 6rem);
+  max-width: 18ch;
+  background: linear-gradient(
+    115deg,
+    #f4f7f8 8%,
+    #c7d2d3 32%,
+    #ffffff 48%,
+    #a9b6b7 66%,
+    #eef2f2 92%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero h1 {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--c-invert-gray);
+  -webkit-text-fill-color: var(--c-invert-gray);
+}
+
+.hero-sub {
+  display: grid;
+  grid-template-columns: minmax(0, 620px) auto;
+  gap: var(--sp-6);
+  align-items: end;
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-hero-line);
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  color: var(--c-invert-gray);
+  max-width: 46ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.hero .btn-primary,
+.hero .btn-secondary {
+  background: #060d10;
+  color: #eef6f7;
+  border: 1px solid var(--c-neon-soft);
+  box-shadow: 0 0 0 1px rgba(53, 215, 255, 0.12), 0 0 16px rgba(53, 215, 255, 0.28);
+  animation: hero-btn-pulse 3.2s var(--ease) infinite;
+}
+
+.hero .btn-primary:hover,
+.hero .btn-secondary:hover {
+  background: #0b171b;
+  color: #ffffff;
+  border-color: rgba(53, 215, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(53, 215, 255, 0.3), 0 0 26px rgba(53, 215, 255, 0.5);
+}
+
+@keyframes hero-btn-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(53, 215, 255, 0.12), 0 0 14px rgba(53, 215, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(53, 215, 255, 0.28), 0 0 26px rgba(53, 215, 255, 0.55);
+  }
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c-hero-line);
+  margin-top: var(--sp-7);
+}
+
+.hero-stat {
+  padding: var(--sp-4) var(--sp-4) 0;
+  border-inline-start: 1px solid var(--c-hero-line);
+}
+
+.hero-stat:first-child {
+  padding-inline-start: 0;
+  border-inline-start: none;
+}
+
+.hero-stat .num {
+  display: block;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-invert-ink);
+}
+
+.hero-stat .label {
+  display: block;
+  margin-top: var(--sp-1);
+  font-size: 0.8125rem;
+  color: var(--c-invert-gray);
+}
+
+/* ---- Ecosistema: grid de líneas finas ---- */
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--c-line);
+  border-inline-start: 1px solid var(--c-line);
+}
+
+.division {
+  border-inline-end: 1px solid var(--c-line);
+  border-bottom: 1px solid var(--c-line);
+  padding: var(--sp-5) var(--sp-4);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.division:hover {
+  background: #fafafa;
+}
+
+.division-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.division-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--c-ink);
+}
+
+.division h3 {
+  font-size: 1.25rem;
+  margin-top: var(--sp-4);
+}
+
+.division p {
+  margin-top: var(--sp-2);
+  font-size: 0.9375rem;
+  color: var(--c-gray);
+  max-width: 34ch;
+  flex-grow: 1;
+}
+
+.division-link {
+  margin-top: var(--sp-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--c-ink);
+}
+
+.division-link svg {
+  transition: transform var(--dur-fast) var(--ease);
+  width: 14px;
+  height: 14px;
+}
+
+.division:hover .division-link svg {
+  transform: translateX(3px);
+}
+
+/* ---- Presencia global / métricas ---- */
+
+.global {
+  background: var(--c-invert-bg);
+  color: var(--c-invert-ink);
+  border-bottom: none;
+}
+
+.global .eyebrow {
+  color: var(--c-invert-gray);
+}
+
+.global .eyebrow::before {
+  background: var(--c-invert-ink);
+}
+
+.global .section-head h2 {
+  color: var(--c-invert-ink);
+}
+
+.global-desc {
+  max-width: 52ch;
+  color: var(--c-invert-gray);
+  font-size: 1rem;
+  padding-bottom: var(--sp-6);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--c-invert-line);
+}
+
+.metric {
+  padding: var(--sp-6) var(--sp-4) var(--sp-7);
+  border-inline-start: 1px solid var(--c-invert-line);
+}
+
+.metric:first-child {
+  border-inline-start: none;
+}
+
+.metric .num {
+  display: block;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.metric .label {
+  display: block;
+  margin-top: var(--sp-2);
+  font-size: 0.875rem;
+  color: var(--c-invert-gray);
+  max-width: 22ch;
+}
+
+.nodes-list {
+  border-top: 1px solid var(--c-invert-line);
+  padding-block: var(--sp-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.nodes-list span {
+  font-size: 0.8125rem;
+  color: var(--c-invert-gray);
+  letter-spacing: 0.02em;
+}
+
+.nodes-list strong {
+  color: var(--c-invert-ink);
+  font-weight: 500;
+}
+
+/* ---- Contacto / CTA final ---- */
+
+.cta {
+  padding-block: var(--sp-8);
+}
+
+.cta-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--sp-5);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  max-width: 20ch;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.contact-block {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--c-line);
+}
+
+.cta-contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
+}
+
+.cta-contact-list div h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-gray);
+  margin-bottom: var(--sp-1);
+  font-weight: 500;
+}
+
+.cta-contact-list div a,
+.cta-contact-list div p {
+  font-size: 1rem;
+  color: var(--c-ink);
+}
+
+/* ---- Formulario de contacto / widget de reservas (GoHighLevel) ---- */
+
+.contact-form-block,
+.booking-widget {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-line);
+}
+
+.contact-form-block h3,
+.booking-widget h3 {
+  font-size: 1.25rem;
+}
+
+.contact-form-block > p,
+.booking-widget > p {
+  margin-top: var(--sp-1);
+  margin-bottom: var(--sp-4);
+  max-width: 60ch;
+  color: var(--c-gray);
+  font-size: 0.9375rem;
+}
+
+.booking-widget-frame {
+  border: 1px solid var(--c-line);
+  max-width: 640px;
+}
+
+.booking-widget-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 650px;
+  border: none;
+  overflow: hidden;
+}

@@ -1,0 +1,443 @@
+/* ==========================================================================
+   COMPONENTS — header, botones, footer
+   ========================================================================== */
+
+/* ---- Botones: planos, sin relleno decorativo, sin sombra ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 0.9rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--c-ink);
+  color: var(--c-bg);
+  border-color: var(--c-ink);
+}
+
+.btn-primary:hover {
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-line-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--c-ink);
+}
+
+.btn-arrow {
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ---- Header ---- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--c-gray);
+  font-weight: 400;
+}
+
+.logo-icon {
+  width: 22px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--c-ink-soft);
+  transition: color var(--dur-fast) var(--ease);
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--c-ink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.nav-lang {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--c-gray);
+  letter-spacing: 0.04em;
+}
+
+.nav-lang button[aria-current='true'] {
+  color: var(--c-ink);
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+  padding: var(--sp-1);
+}
+
+.nav-toggle span {
+  height: 1px;
+  width: 100%;
+  background: var(--c-ink);
+  transition: transform var(--dur-fast) var(--ease),
+    opacity var(--dur-fast) var(--ease);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-links a[aria-current='page'] {
+  color: var(--c-ink);
+  font-weight: 600;
+}
+
+/* ---- Header superpuesto sobre el hero oscuro (solo homepage) ----
+   Transparente mientras el hero está a la vista; en cuanto se hace
+   scroll (.is-scrolled, ver main.js) o se abre el menú móvil, vuelve
+   al header claro estándar del resto del sitio. */
+
+.site-header--overlay:not(.is-scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+.site-header--overlay:not(.is-scrolled) .logo,
+.site-header--overlay:not(.is-scrolled) .nav-toggle span {
+  color: var(--c-invert-ink);
+}
+
+.site-header--overlay:not(.is-scrolled) .nav-toggle span {
+  background: var(--c-invert-ink);
+}
+
+.site-header--overlay:not(.is-scrolled) .logo span {
+  color: var(--c-invert-gray);
+}
+
+.site-header--overlay:not(.is-scrolled) .nav-links a {
+  color: var(--c-invert-gray);
+}
+
+.site-header--overlay:not(.is-scrolled) .nav-links a:hover {
+  color: var(--c-invert-ink);
+}
+
+.site-header--overlay:not(.is-scrolled) .nav-actions .btn-primary {
+  background: transparent;
+  color: var(--c-invert-ink);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.site-header--overlay:not(.is-scrolled) .nav-actions .btn-primary:hover {
+  background: var(--c-invert-ink);
+  color: var(--c-hero-bg);
+}
+
+/* Con el menú móvil abierto, el header vuelve a ser sólido y claro
+   para que no quede transparente sobre el panel de navegación blanco. */
+.site-header:has(.main-nav[data-open='true']) {
+  background: var(--c-bg);
+  border-bottom-color: var(--c-line);
+}
+
+.site-header:has(.main-nav[data-open='true']) .logo,
+.site-header:has(.main-nav[data-open='true']) .nav-toggle span {
+  color: var(--c-ink);
+}
+
+.site-header:has(.main-nav[data-open='true']) .nav-toggle span {
+  background: var(--c-ink);
+}
+
+.site-header:has(.main-nav[data-open='true']) .logo span {
+  color: var(--c-gray);
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  background: var(--c-invert-bg);
+  color: var(--c-invert-gray);
+  border-top: 1px solid var(--c-line);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 0.8fr 1fr;
+  gap: var(--sp-5);
+  padding-block: var(--sp-7) var(--sp-6);
+  border-bottom: 1px solid var(--c-invert-line);
+}
+
+.footer-brand .logo {
+  color: var(--c-invert-ink);
+}
+
+.footer-brand .logo span {
+  color: var(--c-invert-gray);
+}
+
+.footer-tagline {
+  margin-top: var(--sp-3);
+  max-width: 30ch;
+  font-size: 0.9375rem;
+  color: var(--c-invert-gray);
+}
+
+.footer-col h4 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-invert-gray);
+  margin-bottom: var(--sp-3);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.footer-col a,
+.footer-col address {
+  font-size: 0.9375rem;
+  font-style: normal;
+  color: #d4d4d4;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.footer-col a:hover {
+  color: var(--c-invert-ink);
+}
+
+.footer-compliance {
+  display: flex;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding-block: var(--sp-5);
+  border-bottom: 1px solid var(--c-invert-line);
+}
+
+.compliance-badge {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--c-invert-line);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--c-invert-gray);
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-block: var(--sp-4);
+  font-size: 0.8125rem;
+  color: #737373;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.footer-legal {
+  display: flex;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.footer-legal a:hover {
+  color: var(--c-invert-ink);
+}
+
+/* ---- Selector de idioma ---- */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+}
+
+.lang-select {
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--c-invert-gray);
+  background: transparent;
+  border: 1px solid var(--c-invert-line);
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.lang-select:hover,
+.lang-select:focus-visible {
+  border-color: var(--c-invert-gray);
+  color: var(--c-invert-ink);
+}
+
+.lang-select option {
+  color: var(--c-ink);
+  background: var(--c-bg);
+}
+
+/* ---- Formularios (contacto, candidaturas) ---- */
+
+.form {
+  max-width: 640px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: var(--sp-3);
+}
+
+.form-field label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--c-ink-soft);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--c-ink);
+  background: var(--c-bg);
+  border: 1px solid var(--c-line-strong);
+  padding: 0.7rem 0.85rem;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  border-color: var(--c-ink);
+  outline: none;
+}
+
+.form-field input.touched:invalid,
+.form-field select.touched:invalid,
+.form-field textarea.touched:invalid {
+  border-color: #b3261e;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-size: 0.8125rem;
+  color: var(--c-gray);
+  margin-bottom: var(--sp-3);
+}
+
+.form-status {
+  margin-top: var(--sp-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-status[data-state='sending'] {
+  color: var(--c-gray);
+}
+
+.form-status[data-state='success'] {
+  color: #1a7f4b;
+}
+
+.form-status[data-state='error'] {
+  color: #b3261e;
+}
+
+button[aria-busy='true'] {
+  opacity: 0.7;
+  cursor: wait;
+}

@@ -1,0 +1,55 @@
+/* ==========================================================================
+   TALENTO — página de candidaturas
+   ========================================================================== */
+
+.talent-hero {
+  padding-top: calc(var(--header-h) + var(--sp-7));
+  padding-bottom: var(--sp-6);
+}
+
+.talent-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  max-width: 22ch;
+  margin-top: var(--sp-3);
+}
+
+.talent-hero .hero-desc {
+  margin-top: var(--sp-3);
+  font-size: 1.0625rem;
+  color: var(--c-gray);
+  max-width: 60ch;
+}
+
+.talent-section {
+  padding-block: var(--sp-6);
+}
+
+.talent-section .section-index {
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+
+.talent-section h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.talent-form-desc {
+  margin-bottom: var(--sp-4);
+  max-width: 60ch;
+  color: var(--c-gray);
+  font-size: 0.9375rem;
+}
+
+.open-roles-empty {
+  border: 1px solid var(--c-line);
+  padding: var(--sp-4);
+  max-width: 72ch;
+}
+
+.open-roles-empty p {
+  font-size: 0.9375rem;
+  color: var(--c-ink-soft);
+}
