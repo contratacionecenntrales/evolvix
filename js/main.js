@@ -67,6 +67,7 @@ window.EvolvixForms = {
   var currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     if (link.hash) return;
+    if (link.hostname !== window.location.hostname) return; // enlaces externos (p. ej. Distribuidores)
     if (link.pathname.replace(/\/index\.html$/, '/') === currentPath) {
       link.setAttribute('aria-current', 'page');
     }
