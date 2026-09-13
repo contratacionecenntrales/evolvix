@@ -54,14 +54,18 @@ ServerSignature Off
 
   # Política de contenido: recursos propios + widget de reservas de
   # GoHighLevel (software.metatok.ai) + envío de formularios a Web3Forms
-  # (api.web3forms.com), las únicas excepciones de terceros del sitio.
+  # (api.web3forms.com) + visor 3D de Spline (unpkg.com sirve el script
+  # del componente <spline-viewer>, prod.spline.design sirve la propia
+  # escena .splinecode) — únicas excepciones de terceros del sitio, y
+  # solo en la página que use ese componente.
   # La tipografía Inter se sirve autoalojada desde /assets/fonts/, por lo
   # que ya no hace falta fonts.googleapis.com / fonts.gstatic.com.
   # No hay scripts ni estilos inline, por lo que no se necesita
-  # 'unsafe-inline' en ninguna directiva.
+  # 'unsafe-inline' en ninguna directiva. worker-src/blob: es necesario
+  # porque el runtime de Spline arranca un Web Worker desde un blob.
   # form-action incluye mailto: como respaldo si el envío a Web3Forms
   # fallara y el formulario recurriera al envío por correo del visitante.
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://software.metatok.ai; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self' https://software.metatok.ai https://api.web3forms.com; frame-src https://software.metatok.ai; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://software.metatok.ai https://unpkg.com; style-src 'self'; font-src 'self'; img-src 'self' data:; worker-src 'self' blob:; connect-src 'self' https://software.metatok.ai https://api.web3forms.com https://prod.spline.design; frame-src https://software.metatok.ai; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; upgrade-insecure-requests"
 </IfModule>
 
 # ---- Directorios y archivos ----

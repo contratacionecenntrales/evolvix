@@ -1,0 +1,202 @@
+/* ==========================================================================
+   CONTAINER SCROLL — tarjeta 3D controlada por el scroll
+   Adaptación vanilla (sin React/framer-motion) del efecto "ContainerScroll"
+   de Aceternity UI. El JS (js/container-scroll.js) calcula el progreso de
+   scroll dentro de [data-container-scroll] y aplica rotateX/scale/translateY
+   directamente como estilo en línea; este CSS solo pone los valores de
+   reposo y la estética de la tarjeta.
+   ========================================================================== */
+
+.cs-wrapper {
+  position: relative;
+  height: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-1);
+}
+
+@media (min-width: 768px) {
+  .cs-wrapper {
+    height: 80rem;
+    padding: var(--sp-8);
+  }
+}
+
+.cs-inner {
+  position: relative;
+  width: 100%;
+  padding-block: var(--sp-5);
+  perspective: 1000px;
+}
+
+@media (min-width: 768px) {
+  .cs-inner {
+    padding-block: var(--sp-8);
+  }
+}
+
+.cs-header {
+  max-width: 64rem;
+  margin-inline: auto;
+  text-align: center;
+  will-change: transform;
+}
+
+.cs-header h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.cs-header strong {
+  display: block;
+  margin-top: var(--sp-1);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.cs-card {
+  max-width: 64rem;
+  margin: -3rem auto 0;
+  height: 30rem;
+  width: 100%;
+  border: 4px solid #6c6c6c;
+  padding: var(--sp-1);
+  background: #222222;
+  border-radius: 30px;
+  box-shadow:
+    0 0 #0000004d,
+    0 9px 20px #0000004a,
+    0 37px 37px #00000042,
+    0 84px 50px #00000026,
+    0 149px 60px #0000000a,
+    0 233px 65px #00000003;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .cs-card {
+    height: 40rem;
+    padding: var(--sp-3);
+  }
+}
+
+.cs-card-inner {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #f4f4f5;
+}
+
+.cs-card-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+/* ---- Mock de interfaz (sin dependencias de imágenes externas) ---- */
+
+.cs-mock {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+}
+
+.cs-mock-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--c-line);
+  background: #ffffff;
+}
+
+.cs-mock-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-line-strong);
+}
+
+.cs-mock-body {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  gap: 1px;
+  background: var(--c-line);
+  overflow: hidden;
+}
+
+.cs-mock-side {
+  background: #ffffff;
+  padding: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.cs-mock-side i {
+  display: block;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--c-line-strong);
+}
+
+.cs-mock-side i:nth-child(1) {
+  width: 70%;
+  background: var(--c-accent);
+  opacity: 0.6;
+}
+
+.cs-mock-main {
+  background: #ffffff;
+  padding: var(--sp-4);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  align-content: start;
+}
+
+.cs-mock-card {
+  border: 1px solid var(--c-line);
+  border-radius: 10px;
+  padding: var(--sp-3);
+}
+
+.cs-mock-card i {
+  display: block;
+  height: 8px;
+  width: 60%;
+  border-radius: 3px;
+  background: var(--c-line-strong);
+  margin-bottom: var(--sp-2);
+}
+
+.cs-mock-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 64px;
+}
+
+.cs-mock-bars b {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: var(--c-accent);
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-header,
+  .cs-card {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo — Container Scroll</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/container-scroll.css" />
+</head>
+<body>
+  <main>
+    <p style="padding: 1rem 1.5rem; font-size: 0.875rem; color: var(--c-gray);">
+      Página de demo (no enlazada en el menú, no indexable) — desplázate para ver el efecto.
+      <a href="index.html" style="color: var(--c-ink); text-decoration: underline;">&larr; Volver al inicio</a>
+    </p>
+
+    <div style="height: 40vh; display: flex; align-items: center; justify-content: center; color: var(--c-gray); font-size: 0.875rem;">
+      Sigue bajando ↓
+    </div>
+
+    <section class="cs-wrapper" data-container-scroll>
+      <div class="cs-inner">
+        <div class="cs-header">
+          <p class="eyebrow" style="justify-content: center; margin-bottom: var(--sp-3);">Vista previa</p>
+          <h2>Así se mueve</h2>
+          <strong>el ecosistema Evolvix.</strong>
+        </div>
+
+        <div class="cs-card">
+          <div class="cs-card-inner">
+            <div class="cs-mock" aria-hidden="true">
+              <div class="cs-mock-bar">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="cs-mock-body">
+                <div class="cs-mock-side">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+                <div class="cs-mock-main">
+                  <div class="cs-mock-card">
+                    <i></i>
+                    <div class="cs-mock-bars">
+                      <b style="height: 40%"></b>
+                      <b style="height: 70%"></b>
+                      <b style="height: 55%"></b>
+                      <b style="height: 90%"></b>
+                    </div>
+                  </div>
+                  <div class="cs-mock-card">
+                    <i></i>
+                    <div class="cs-mock-bars">
+                      <b style="height: 60%"></b>
+                      <b style="height: 35%"></b>
+                      <b style="height: 80%"></b>
+                      <b style="height: 50%"></b>
+                    </div>
+                  </div>
+                  <div class="cs-mock-card">
+                    <i></i>
+                    <div class="cs-mock-bars">
+                      <b style="height: 30%"></b>
+                      <b style="height: 65%"></b>
+                      <b style="height: 45%"></b>
+                      <b style="height: 85%"></b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="height: 60vh;"></div>
+  </main>
+
+  <script src="js/container-scroll.js"></script>
+</body>
+</html>
