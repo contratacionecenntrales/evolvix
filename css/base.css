@@ -77,7 +77,8 @@ h4 {
 
 section[id],
 .division[id],
-[id='contacto'] {
+[id='contacto'],
+[id='reserva'] {
   scroll-margin-top: calc(var(--header-h) + var(--sp-2));
 }
 

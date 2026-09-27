@@ -85,6 +85,25 @@
     display: flex;
   }
 
+  .nav-lang-mobile {
+    display: block;
+    margin-top: auto;
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--c-line);
+  }
+
+  .nav-lang-mobile .lang-select {
+    width: 100%;
+    color: var(--c-ink);
+    border-color: var(--c-line-strong);
+  }
+
+  .nav-lang-mobile .lang-select:hover,
+  .nav-lang-mobile .lang-select:focus-visible {
+    border-color: var(--c-ink);
+    color: var(--c-ink);
+  }
+
   .hero-sub {
     grid-template-columns: 1fr;
     align-items: start;

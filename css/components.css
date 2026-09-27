@@ -335,6 +335,13 @@
   align-items: center;
 }
 
+/* Copia del selector dentro del menú móvil: en escritorio ya está
+   visible en el footer, así que aquí solo se muestra por debajo del
+   breakpoint donde aparece el menú hamburguesa (ver responsive.css). */
+.nav-lang-mobile {
+  display: none;
+}
+
 .lang-select {
   font: inherit;
   font-size: 0.8125rem;

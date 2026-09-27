@@ -322,12 +322,11 @@ window.EvolvixForms = {
     }
   }
 
-  var langSelect = document.getElementById('lang-select');
-  if (langSelect) {
+  document.querySelectorAll('.lang-select').forEach(function (langSelect) {
     langSelect.addEventListener('change', function () {
       if (langSelect.value) {
         window.location.href = langSelect.value;
       }
     });
-  }
+  });
 })();
