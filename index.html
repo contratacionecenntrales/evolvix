@@ -440,19 +440,41 @@
             </form>
           </div>
 
-          <div class="booking-widget" id="reserva">
-            <h3>Reserva una llamada</h3>
-            <p>Elige el horario que mejor te convenga y habla directamente con nuestro equipo.</p>
-            <div class="booking-widget-frame">
-              <iframe
-                src="https://software.metatok.ai/widget/booking/pEtnymND4cFCyKNKpyKE"
-                scrolling="no"
-                id="pEtnymND4cFCyKNKpyKE_1"
-                title="Reserva una llamada"
-                allow="payment"
-                loading="lazy"
-              ></iframe>
-            </div>
+          <div class="callback-form-block" id="reserva">
+            <h3>Solicita una llamada</h3>
+            <p>Déjanos tus datos y te llamamos en el horario que prefieras.</p>
+            <form class="form" data-mailto-to="info@evolvixglobal.es" data-mailto-subject="Solicitud de llamada — Evolvix Global">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="callback-name">Nombre</label>
+                  <input type="text" id="callback-name" name="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="callback-phone">Teléfono</label>
+                  <input type="tel" id="callback-phone" name="phone" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="callback-email">Correo electrónico</label>
+                <input type="email" id="callback-email" name="email" required />
+              </div>
+              <div class="form-field">
+                <label for="callback-time">Mejor franja horaria</label>
+                <select id="callback-time" name="reason" data-subject-field>
+                  <option>Mañana (9:00–13:00)</option>
+                  <option>Tarde (13:00–19:00)</option>
+                  <option>Cualquier hora</option>
+                </select>
+              </div>
+              <p class="form-note">Al enviarlo, tu solicitud se enviará directamente a info@evolvixglobal.es.</p>
+              <button type="submit" class="btn btn-primary">
+                Solicitar llamada
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+              </button>
+              <p class="form-status" data-form-status role="status" aria-live="polite" hidden data-status-sending="Enviando…" data-status-success="¡Solicitud enviada! Te llamaremos en el horario elegido." data-status-error="No se ha podido enviar. Inténtalo de nuevo o escribe directamente a info@evolvixglobal.es."></p>
+            </form>
           </div>
         </div>
       </div>
@@ -542,6 +564,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="https://software.metatok.ai/js/form_embed.js"></script>
 </body>
 </html>

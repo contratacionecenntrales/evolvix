@@ -380,27 +380,40 @@ section {
   color: var(--c-ink);
 }
 
-/* ---- Formulario de contacto / widget de reservas (GoHighLevel) ---- */
+/* ---- Formulario de contacto / solicitud de llamada ---- */
 
 .contact-form-block,
-.booking-widget {
+.callback-form-block {
   margin-top: var(--sp-6);
   padding-top: var(--sp-5);
   border-top: 1px solid var(--c-line);
 }
 
 .contact-form-block h3,
-.booking-widget h3 {
+.callback-form-block h3 {
   font-size: 1.25rem;
 }
 
 .contact-form-block > p,
-.booking-widget > p {
+.callback-form-block > p {
   margin-top: var(--sp-1);
   margin-bottom: var(--sp-4);
   max-width: 60ch;
   color: var(--c-gray);
   font-size: 0.9375rem;
+}
+
+/* Tarjeta destacada: mismo lenguaje visual que el resto (sin sombras ni
+   degradados), pero con un borde de acento para diferenciarla del
+   formulario general de contacto que tiene al lado. */
+.callback-form-block {
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-top: 3px solid var(--c-accent);
+}
+
+.callback-form-block .form {
+  max-width: none;
 }
 
 .booking-widget-frame {

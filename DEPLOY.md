@@ -152,21 +152,32 @@ adjunto en el caso de candidaturas.
 - Revisa que `info@evolvixglobal.es` (o la bandeja que configures en
   Web3Forms) sea real y esté monitorizada antes de publicar.
 
-### 6.3 Reserva de llamada
+### 6.3 Solicitar llamada
 
-Es el widget de calendario de GoHighLevel (`software.metatok.ai`),
-incrustado como `<iframe>`. La gestión de disponibilidad, notificaciones y
-confirmaciones la controla directamente el panel de GoHighLevel — no hay
-nada que mantener aquí aparte del propio embed.
+El widget de calendario de GoHighLevel (`software.metatok.ai`) se ha
+retirado: dejó de cargar de forma fiable (se comprobó tanto en pruebas
+como en el sitio ya publicado). En su lugar, la sección "Solicita una
+llamada" del home es un formulario propio (nombre, teléfono, correo y
+franja horaria) que funciona exactamente igual que el resto: envío real
+vía Web3Forms si has configurado la clave, o `mailto:` a
+`info@evolvixglobal.es` si no. No depende de ningún proveedor externo, así
+que no puede volver a romperse por un cambio ajeno.
+
+Si en el futuro quieres retomar un calendario embebido (GoHighLevel,
+Calendly, Cal.com...), hay que: 1) volver a añadir el `<iframe>` en el
+bloque `#reserva` de `index.html` (en los 6 idiomas), y 2) autorizar ese
+dominio en la CSP del `.htaccess` (`script-src`, `frame-src` y
+`connect-src` según lo que pida el proveedor).
 
 ### 6.4 CSP
 
-El `.htaccess` autoriza explícitamente `software.metatok.ai` (widget de
-reservas) y `api.web3forms.com` (envío de formularios) en las directivas
-necesarias — son las únicas excepciones de terceros del sitio — y
-`form-action` incluye `mailto:` para que el envío nativo funcione incluso
-si JavaScript fallara. Si en el futuro cambias de proveedor de calendario
-o de formularios, hay que actualizar esa cabecera con el nuevo dominio.
+El `.htaccess` autoriza explícitamente `api.web3forms.com` (envío de
+formularios) y, solo en `demo-spline.html`, `unpkg.com` y
+`prod.spline.design` (visor 3D) — son las únicas excepciones de terceros
+del sitio — y `form-action` incluye `mailto:` para que el envío nativo
+funcione incluso si JavaScript fallara. Si en el futuro añades otro
+servicio externo (calendario, chat, analítica...), hay que actualizar esa
+cabecera con el nuevo dominio.
 
 ## 7. Rendimiento, SEO y accesibilidad (novedades)
 
@@ -208,9 +219,9 @@ o de formularios, hay que actualizar esa cabecera con el nuevo dominio.
       de vuelta a `mailto:` sin errores
 - [ ] El formulario de candidaturas envía correctamente con el CV
       adjunto (revisa que llegue el archivo a la bandeja configurada)
-- [ ] El widget "Reserva una llamada" carga el calendario de GoHighLevel
-      (revisa la consola del navegador por si el dominio cambia y hay que
-      actualizar el CSP)
+- [ ] El formulario "Solicita una llamada" envía correctamente a
+      `info@evolvixglobal.es` (mismo comportamiento que el resto: Web3Forms
+      si hay clave, `mailto:` si no)
 - [ ] `https://www.evolvixglobal.es/en/`, `/pt/`, `/fr/`, `/de/` y `/ar/`
       cargan cada uno en su idioma
 - [ ] `https://www.evolvixglobal.es/ar/` se muestra correctamente de derecha

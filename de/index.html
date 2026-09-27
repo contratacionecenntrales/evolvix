@@ -440,19 +440,41 @@
             </form>
           </div>
 
-          <div class="booking-widget" id="reserva">
-            <h3>Termin vereinbaren</h3>
-            <p>Wählen Sie den für Sie passenden Zeitpunkt und sprechen Sie direkt mit unserem Team.</p>
-            <div class="booking-widget-frame">
-              <iframe
-                src="https://software.metatok.ai/widget/booking/pEtnymND4cFCyKNKpyKE"
-                scrolling="no"
-                id="pEtnymND4cFCyKNKpyKE_1"
-                title="Termin vereinbaren"
-                allow="payment"
-                loading="lazy"
-              ></iframe>
-            </div>
+          <div class="callback-form-block" id="reserva">
+            <h3>Rückruf anfordern</h3>
+            <p>Hinterlassen Sie Ihre Daten — wir rufen Sie zur gewünschten Zeit zurück.</p>
+            <form class="form" data-mailto-to="info@evolvixglobal.es" data-mailto-subject="Rückrufanfrage — Evolvix Global">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="callback-name">Name</label>
+                  <input type="text" id="callback-name" name="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="callback-phone">Telefon</label>
+                  <input type="tel" id="callback-phone" name="phone" required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="callback-email">E-Mail</label>
+                <input type="email" id="callback-email" name="email" required />
+              </div>
+              <div class="form-field">
+                <label for="callback-time">Bevorzugte Uhrzeit</label>
+                <select id="callback-time" name="reason" data-subject-field>
+                  <option>Vormittags (9–13 Uhr)</option>
+                  <option>Nachmittags (13–19 Uhr)</option>
+                  <option>Jederzeit</option>
+                </select>
+              </div>
+              <p class="form-note">Beim Absenden wird Ihre Anfrage direkt an info@evolvixglobal.es gesendet.</p>
+              <button type="submit" class="btn btn-primary">
+                Rückruf anfordern
+                <svg class="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.4" />
+                </svg>
+              </button>
+              <p class="form-status" data-form-status role="status" aria-live="polite" hidden data-status-sending="Wird gesendet…" data-status-success="Anfrage gesendet! Wir rufen Sie zur gewählten Zeit zurück." data-status-error="Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@evolvixglobal.es."></p>
+            </form>
           </div>
         </div>
       </div>
@@ -542,6 +564,5 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script src="https://software.metatok.ai/js/form_embed.js"></script>
 </body>
 </html>
