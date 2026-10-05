@@ -15,34 +15,37 @@ DEPLOY.md           (no hace falta subirlo, es solo para referencia)
 index.html          (español — idioma por defecto)
 legal.html
 talento.html
+noticias.html
+inteligencia-artificial.html
+comercio-internacional.html
+inteligencia-negocio.html
+ciberseguridad.html
+infraestructura-cloud.html
+legal-compliance.html
 robots.txt
 sitemap.xml
 assets/             (incluye assets/fonts/, la tipografía Inter autoalojada)
 css/
 js/
-en/                  (inglés)
-  ├─ index.html
-  ├─ legal.html
-  └─ talento.html
-pt/                  (portugués)
-  ├─ index.html
-  ├─ legal.html
-  └─ talento.html
-fr/                  (francés)
-  ├─ index.html
-  ├─ legal.html
-  └─ talento.html
-de/                  (alemán)
-  ├─ index.html
-  ├─ legal.html
-  └─ talento.html
-ar/                  (árabe — RTL)
-  ├─ index.html
-  ├─ legal.html
-  └─ talento.html
+en/                  (inglés — mismas 9 páginas que el español)
+pt/                  (portugués — ídem)
+fr/                  (francés — ídem)
+de/                  (alemán — ídem)
+ar/                  (árabe — RTL — ídem)
 .well-known/
   └─ security.txt
 ```
+
+`demo-scroll.html` y `demo-spline.html` son páginas de demostración
+(`noindex`, no enlazadas en el menú) — puedes subirlas o no, no afectan al
+resto del sitio.
+
+**Páginas de división**: cada una de las 6 divisiones tiene ahora su propia
+página (antes eran solo anclas dentro de la home), accesibles desde el
+desplegable "Divisiones" del menú. Pendiente: no llevan fotografía propia
+todavía (usan los mismos iconos de línea que el resto del sitio) — si
+tienes fotos reales de cada división, se pueden añadir a la cabecera de
+cada página.
 
 No subas `.git/`, `DEPLOY.md` ni `i18n-src/` — no son necesarios en el
 servidor. La carpeta `i18n-src/` contiene solo las plantillas y el script

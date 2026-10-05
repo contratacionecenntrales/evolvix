@@ -92,6 +92,29 @@
     border-top: 1px solid var(--c-line);
   }
 
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: none;
+    border: none;
+    padding: var(--sp-2) 0 0 var(--sp-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .dropdown-menu a {
+    padding: 0;
+    font-size: 1rem;
+    color: var(--c-gray);
+  }
+
+  .dropdown-caret {
+    display: none;
+  }
+
   .nav-lang-mobile .lang-select {
     width: 100%;
     color: var(--c-ink);

@@ -164,6 +164,67 @@
   font-weight: 600;
 }
 
+/* ---- Menú desplegable "Divisiones" ---- */
+
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dropdown-caret {
+  width: 8px;
+  height: 8px;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.has-dropdown:hover .dropdown-caret,
+.has-dropdown:focus-within .dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 0;
+  min-width: 280px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-line);
+  padding-block: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease), visibility var(--dur-fast);
+  z-index: 50;
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.875rem;
+  color: var(--c-ink-soft);
+  transition: background-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background: #fafafa;
+  color: var(--c-ink);
+}
+
 /* ---- Header superpuesto sobre el hero oscuro (solo homepage) ----
    Transparente mientras el hero está a la vista; en cuanto se hace
    scroll (.is-scrolled, ver main.js) o se abre el menú móvil, vuelve

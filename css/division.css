@@ -1,0 +1,77 @@
+/* ==========================================================================
+   DIVISIÓN — página individual por división
+   ========================================================================== */
+
+.division-hero {
+  padding-top: calc(var(--header-h) + var(--sp-7));
+  padding-bottom: var(--sp-5);
+}
+
+.division-hero-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--c-ink);
+  margin-bottom: var(--sp-3);
+}
+
+.division-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  max-width: 24ch;
+  margin-top: var(--sp-2);
+}
+
+.division-hero .hero-desc {
+  margin-top: var(--sp-3);
+  font-size: 1.0625rem;
+  color: var(--c-gray);
+  max-width: 62ch;
+}
+
+.division-intro {
+  padding-block: var(--sp-6);
+}
+
+.division-intro p {
+  font-size: 1rem;
+  color: var(--c-ink-soft);
+  max-width: 70ch;
+}
+
+.division-capabilities {
+  padding-block: var(--sp-6);
+}
+
+.capability-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 var(--sp-5);
+  margin-top: var(--sp-4);
+  border-top: 1px solid var(--c-line);
+}
+
+.capability-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding-block: var(--sp-3);
+  border-bottom: 1px solid var(--c-line);
+}
+
+.capability-item svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+  color: var(--c-accent);
+}
+
+.capability-item span {
+  font-size: 0.9375rem;
+  color: var(--c-ink-soft);
+}
+
+@media (max-width: 640px) {
+  .capability-list {
+    grid-template-columns: 1fr;
+  }
+}
