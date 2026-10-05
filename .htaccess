@@ -24,6 +24,16 @@ ServerSignature Off
   # evolvixglobal.es -> www.evolvixglobal.es
   RewriteCond %{HTTP_HOST} ^evolvixglobal\.es$ [NC]
   RewriteRule ^(.*)$ https://www.evolvixglobal.es/$1 [L,R=301]
+
+  # ---- URLs limpias para los 6 enlaces objetivo de Sitelinks (sin .html) ----
+  # Reescritura interna: la barra de direcciones conserva la URL limpia,
+  # no hay redirect visible ni contenido duplicado con otra ruta canónica.
+  RewriteRule ^divisiones/?$ divisiones.html [L]
+  RewriteRule ^carreras-profesionales/?$ talento.html [L]
+  RewriteRule ^noticias/?$ noticias.html [L]
+  RewriteRule ^distribuidores/?$ distribuidores.html [L]
+  RewriteRule ^presencia-global/?$ index.html [L]
+  RewriteRule ^contacto/?$ index.html [L]
 </IfModule>
 
 # ---- Cabeceras de seguridad ----
