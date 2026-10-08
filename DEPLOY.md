@@ -16,6 +16,8 @@ index.html          (español — idioma por defecto)
 legal.html
 talento.html
 noticias.html
+divisiones.html      (hub de las 6 divisiones, accesible también en /divisiones)
+distribuidores.html  (red de partners, accesible también en /distribuidores)
 inteligencia-artificial.html
 comercio-internacional.html
 inteligencia-negocio.html
@@ -46,6 +48,19 @@ desplegable "Divisiones" del menú. Pendiente: no llevan fotografía propia
 todavía (usan los mismos iconos de línea que el resto del sitio) — si
 tienes fotos reales de cada división, se pueden añadir a la cabecera de
 cada página.
+
+**URLs limpias (SEO)**: el `.htaccess` incluye ahora reglas de
+`mod_rewrite` que reescriben internamente `/divisiones`,
+`/carreras-profesionales`, `/noticias`, `/distribuidores`,
+`/presencia-global` y `/contacto` hacia sus páginas `.html` reales, sin
+redirect visible (la URL en el navegador se mantiene limpia). Requiere que
+`mod_rewrite` esté activo en el hosting — Hostalia lo tiene por defecto en
+sus planes con Apache, y el resto del `.htaccess` ya depende de él, así que
+no hace falta ninguna configuración adicional.
+
+**Botón "Área Privada"**: todas las páginas raíz en español llevan ahora un
+botón flotante fijo (esquina inferior derecha) que enlaza a
+`virtual.evolvixglobal.es`, el portal de distribuidores.
 
 No subas `.git/`, `DEPLOY.md` ni `i18n-src/` — no son necesarios en el
 servidor. La carpeta `i18n-src/` contiene solo las plantillas y el script
