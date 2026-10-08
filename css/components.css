@@ -509,3 +509,71 @@ button[aria-busy='true'] {
   opacity: 0.7;
   cursor: wait;
 }
+
+/* ---- Botón flotante: Área Privada ----
+   Acceso directo y persistente al portal de distribuidores
+   (virtual.evolvixglobal.es), visible en todas las páginas por encima
+   del contenido pero por debajo del header (z-index 100) y del menú
+   móvil a pantalla completa, que vive dentro del stacking context del
+   header y lo cubre automáticamente al abrirse. */
+
+.evolvix-private-access-wrapper {
+  position: fixed;
+  right: var(--sp-3);
+  bottom: var(--sp-3);
+  z-index: 90;
+}
+
+.evolvix-private-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  background: rgba(10, 10, 10, 0.88);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--c-neon-soft);
+  backdrop-filter: blur(8px);
+  transition: border-color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.evolvix-private-btn .brand-icon {
+  display: flex;
+  align-items: center;
+}
+
+.evolvix-private-btn .brand-icon img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.evolvix-private-btn:hover,
+.evolvix-private-btn:focus-visible {
+  border-color: var(--c-neon);
+  box-shadow: 0 0 0 1px rgba(53, 215, 255, 0.3), 0 0 20px rgba(53, 215, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.evolvix-private-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .evolvix-private-access-wrapper {
+    right: var(--sp-2);
+    bottom: var(--sp-2);
+  }
+
+  .evolvix-private-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+  }
+}
